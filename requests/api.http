@@ -1,0 +1,14 @@
+GET http://localhost:3000/auth/profile
+
+###
+
+POST http://localhost:3000/auth/forgot-password
+Content-Type: application/json
+X-XSRF-TOKEN: 2BRA9jgZ-YCnfBoHGXR3RupPeBEP2f3Tr4SE
+
+{
+  "email": "info@test123.io",
+  "language": "fr"
+}
+
+###

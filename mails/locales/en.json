@@ -1,0 +1,6 @@
+{
+  "reset-password": {
+    "subject": "Reset Password",
+    "message": "Hello from the template"
+  }
+}

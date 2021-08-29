@@ -17,7 +17,7 @@ const RememberMeStrategy = new Strategy(async (token: string, done) => {
   }
 }, async (user: User, done) => {
   try {
-    user.token = await tokenUtil.generate();
+    user.token = tokenUtil.generate();
     await user.save();
 
     return done(null, user.token);

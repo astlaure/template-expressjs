@@ -1,0 +1,6 @@
+{
+  "reset-password": {
+    "subject": "Reinitialiser votre mot de passe",
+    "message": "Bonjour du template"
+  }
+}
