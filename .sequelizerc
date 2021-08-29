@@ -1,0 +1,5 @@
+module.exports = {
+  'config': './dist/database/config.js',
+  'migrations-path': './dist/database/migrations',
+  'seeders-path': './dist/database/seeders',
+};
