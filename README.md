@@ -1,6 +1,6 @@
 # todo
 
-1. emails
+1. emails (find better location)
 2. finish auth module
 
 # Possible Addons

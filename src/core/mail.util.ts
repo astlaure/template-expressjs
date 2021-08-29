@@ -2,9 +2,9 @@ import 'dotenv/config';
 import nodemailer from 'nodemailer';
 import hbs from 'hbs';
 import path from 'path';
-import en from './locales/en';
-import fr from './locales/fr';
 import fs from 'fs/promises';
+import en from '../../mails/locales/en.json';
+import fr from '../../mails/locales/fr.json';
 
 const mailUtil = {
   mailer: nodemailer.createTransport({
@@ -20,19 +20,19 @@ const mailUtil = {
 
   languages: { en, fr } as any,
 
-  sendResetPasswordMail: async (email: string, language: string) => {
+  sendEmail: async (name: string, email: string, language: string, context: any) => {
     const data = {
-      appName: 'Template ExpressJS',
-      labels: mailUtil.languages[language],
+      ...context,
+      labels: mailUtil.languages[language][name],
     };
 
     const template = hbs.handlebars.compile(await fs.readFile(
-      path.resolve(__dirname, 'templates/reset-password.hbs'), { encoding: 'utf-8' }));
+      path.resolve(`mails/templates/${name}.hbs`), { encoding: 'utf-8' }));
 
     await mailUtil.mailer.sendMail({
       from: process.env.SMTP_FROM,
       to: email,
-      subject: 'Reset Password',
+      subject: data.labels.subject,
       html: template(data),
     });
   },
